@@ -1,9 +1,11 @@
 import './App.css';
+import TopBanner from './components/TopBanner';
 
 function App() {
   return (
     <div>
-      <h1>Rick and Morty</h1>
+      <TopBanner />
+
     </div>
   );
 }
