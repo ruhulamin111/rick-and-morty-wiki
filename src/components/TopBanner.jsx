@@ -17,7 +17,7 @@ const TopBanner = () => {
                 </div>
 
                 <div className='flex items-center gap-10'>
-                    <button className=' text-white rounded-full py-2 px-4 bg-[#9DEF29]'>Watch now</button>
+                    <button className=' text-white rounded-full py-2 px-4 bg-[#9DEF29]'> Watch now</button>
                     <p>Lorem ipsum dolor sit amet <br /> consectetur adipisicing elit. Cumque in natus <br /> obcaecati corrupti.</p>
                 </div>
             </div>
