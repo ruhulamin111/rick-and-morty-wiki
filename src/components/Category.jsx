@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import spiral from '../assets/Spiral.png'
 import useCast from '../hooks/useCast'
 
 const Category = () => {
     const [cast] = useCast(1)
-    console.log(cast)
+
 
     return (
         <div style={{ background: `url(${spiral})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} >
@@ -17,14 +17,16 @@ const Category = () => {
                     </div>
                     <div className='py-5'>
                         <Swiper
-                            spaceBetween={10}
+                            spaceBetween={20}
                             slidesPerView={5}
                             onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
                             {
                                 cast.map((castItem) => <SwiperSlide key={castItem.id}>
+                                    <img src={castItem.image} alt="" />
                                     <h2>{castItem.name}</h2>
+
                                 </SwiperSlide>)
                             }
 

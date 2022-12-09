@@ -1,14 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Category from './components/Category';
-import TopBanner from './components/TopBanner';
+import AllCast from './components/AllCast';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
-      <TopBanner />
-      <Category />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/allCast' element={<AllCast />} />
 
 
+      </Routes>
     </div>
   );
 }
