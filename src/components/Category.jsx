@@ -15,14 +15,15 @@ const Category = () => {
 
     return (
         <div style={{ background: `url(${spiral})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} >
-            <div className='max-w-7xl md:w-10/12 mx-auto h-screen py-5'>
+            <div className='max-w-7xl md:w-10/12 mx-auto h-screen py-10'>
                 <div>
+                    {/* title sector  */}
                     <div className='flex justify-between items-center'>
-                        <h2>Meet the cast</h2>
-                        <button onClick={() => navigate('/allCast')}>View all</button>
+                        <h2 className='text-2xl font-bold text-[#59fa93]'>Meet the cast</h2>
+                        <button className='border py-1 px-3 hover:bg-[#59fa93] hover:text-black text-[#59fa93]' onClick={() => navigate('/allCast')}>View all</button>
                     </div>
-
-                    <div className='py-5'>
+                    {/* character item  */}
+                    <div className='py-2'>
                         <Swiper
                             spaceBetween={20}
                             slidesPerView={5}
@@ -30,17 +31,16 @@ const Category = () => {
                             onSwiper={(swiper) => console.log(swiper)}
                         >
                             {
-                                cast.map((castItem) => <SwiperSlide key={castItem.id}>
-                                    <img src={castItem.image} alt="" />
-                                    <h2>{castItem.name}</h2>
-
+                                cast.map((castItem) => <SwiperSlide className='border p-2 rounded-md rounded-br-3xl' key={castItem.id}>
+                                    <img className='rounded-md mb-4' src={castItem.image} alt="" />
+                                    <h2 className='text-lg font-bold'>{castItem.name}</h2>
                                 </SwiperSlide>)
                             }
                         </Swiper>
                     </div>
                 </div>
-
-                <div style={{ background: `url(${star})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} className='py-5'>
+                {/* location item  */}
+                <div style={{ background: `url(${star})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} className='py-2'>
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={5}
@@ -48,15 +48,14 @@ const Category = () => {
                         onSwiper={(swiper) => console.log(swiper)}
                     >
                         {
-                            location.map((locationItem) => <SwiperSlide key={locationItem.id}>
+                            location.map((locationItem) => <SwiperSlide className='border px-2 py-4 rounded-md rounded-br-2xl' key={locationItem.id}>
                                 <h2>{locationItem.name}</h2>
-
                             </SwiperSlide>)
                         }
                     </Swiper>
                 </div>
-
-                <div style={{ background: `url(${star})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} className='py-5'>
+                {/* episode item  */}
+                <div style={{ background: `url(${star})`, backgroundRepeat: 'no-repeat', objectFit: 'cover' }} className='py-2'>
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={5}
@@ -64,16 +63,14 @@ const Category = () => {
                         onSwiper={(swiper) => console.log(swiper)}
                     >
                         {
-                            episode.map((episodeItem) => <SwiperSlide key={episodeItem.id}>
+                            episode.map((episodeItem) => <SwiperSlide className='border px-2 py-4 rounded-md rounded-br-2xl' key={episodeItem.id}>
                                 <h2>{episodeItem.name}</h2>
-
                             </SwiperSlide>)
                         }
                     </Swiper>
                 </div>
             </div>
         </div>
-
     )
 }
 
