@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import star from '../assets/Star.png'
 import useCast from '../hooks/useCast'
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const AllCast = () => {
     const [category, setCategory] = useState('')
     const [item, setItem] = useState('')
     const [page, setPage] = useState(1)
     const [cast] = useCast(page)
+    console.log('a', cast);
     const navigate = useNavigate()
     const handleSelect = (event) => {
         setCategory(event.target.value);
@@ -19,7 +21,7 @@ const AllCast = () => {
         fetch(`https://rickandmortyapi.com/api/${category}/?page=${page}&name=${item}`)
             .then(res => res.json())
             .then(data => (data.results))
-    }, [category, item])
+    }, [category, item, page])
 
     const handleNext = () => {
         setPage(page + 1)
@@ -61,11 +63,11 @@ const AllCast = () => {
                     }
                 </div>
                 {/* bottom pagination  */}
-                <div className='flex gap-2 items-center justify-center'>
+                <div className='flex gap-4 pt-8 items-center justify-center'>
                     <span>Page</span>
-                    <span onClick={handlePrevious}>Previous</span>
-                    <span>{page}</span>
-                    <span onClick={handleNext}>Next</span>
+                    <span className='cursor-pointer text-2xl text-[#79fd92]' onClick={handlePrevious}><BsFillArrowLeftCircleFill /></span>
+                    <span className='border p-3 text-sm rounded-full '>{page}</span>
+                    <span className='cursor-pointer text-2xl text-[#79fd92]' onClick={handleNext}><BsFillArrowRightCircleFill /></span>
                     <span>of 42</span>
                 </div>
             </div>
